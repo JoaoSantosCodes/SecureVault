@@ -1,5 +1,19 @@
 # SecureVault - Gerenciador de Senhas Seguro
 
+```
+   ____                           _    _           _ _   
+  / ___|  ___  ___ _   _ _ __ ___| |  | | __ _ _   _| |_
+  \___ \ / _ \/ __| | | | '__/ _ \ |  | |/ _` | | | | __|
+   ___) |  __/ (__| |_| | | |  __/ |__| | (_| | |_| | |_ 
+  |____/ \___|\___|\__,_|_|  \___|_____/ \__,_|\__,_|\__|
+                                                          
+  🔒 Your Passwords, Your Security, Your Control 🔑
+```
+
+<div align="center">
+  <img src="resources/images/securevault.png" alt="SecureVault Logo" width="128" height="128">
+</div>
+
 SecureVault é um gerenciador de senhas moderno e seguro desenvolvido em Python, oferecendo uma interface gráfica intuitiva e recursos avançados de segurança.
 
 ![SecureVault Screenshot](screenshot.png)
