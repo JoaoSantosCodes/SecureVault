@@ -1,9 +1,7 @@
-from PyQt5.QtWidgets import (
-    QWidget, QVBoxLayout, QHBoxLayout, QLabel, QLineEdit,
-    QPushButton, QTableWidget, QTableWidgetItem, QMessageBox,
-    QHeaderView, QTextEdit, QSplitter
-)
-from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QLabel,
+                             QLineEdit, QPushButton, QTableWidget, QTableWidgetItem,
+                             QHeaderView, QMessageBox, QSplitter, QTextEdit, QGroupBox)
+from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QFont, QColor
 from core.password_manager import PasswordManager
 import os

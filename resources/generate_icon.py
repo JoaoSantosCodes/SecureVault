@@ -123,5 +123,79 @@ def create_icon():
     print(f"Ícone gerado com sucesso em {icon_path}")
     print(f"PNG gerado com sucesso em {png_path}")
 
+def create_shield_icon(size=(512, 512)):
+    # Criar uma nova imagem com fundo transparente
+    image = Image.new('RGBA', size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    
+    # Cores
+    shield_color = (0, 77, 38)  # Verde escuro
+    text_color = (255, 255, 255)  # Branco
+    
+    # Dimensões do escudo
+    width, height = size
+    padding = width * 0.1
+    shield_width = width - (2 * padding)
+    shield_height = height - (2 * padding)
+    
+    # Desenhar o escudo (forma hexagonal)
+    shield_points = [
+        (padding + (shield_width * 0.2), padding),  # Topo esquerdo
+        (padding + (shield_width * 0.8), padding),  # Topo direito
+        (padding + shield_width, padding + (shield_height * 0.3)),  # Direita superior
+        (padding + shield_width, padding + (shield_height * 0.7)),  # Direita inferior
+        (padding + (shield_width * 0.5), padding + shield_height),  # Base
+        (padding, padding + (shield_height * 0.7)),  # Esquerda inferior
+        (padding, padding + (shield_height * 0.3)),  # Esquerda superior
+    ]
+    draw.polygon(shield_points, fill=shield_color)
+    
+    # Adicionar texto "SV"
+    try:
+        # Tentar carregar uma fonte do sistema
+        font_size = int(min(width, height) * 0.4)
+        font = ImageFont.truetype("arial.ttf", font_size)
+    except:
+        # Se não encontrar a fonte, usar a fonte padrão
+        font = ImageFont.load_default()
+    
+    text = "SV"
+    # Calcular posição do texto para centralizar
+    text_bbox = draw.textbbox((0, 0), text, font=font)
+    text_width = text_bbox[2] - text_bbox[0]
+    text_height = text_bbox[3] - text_bbox[1]
+    
+    text_x = (width - text_width) // 2
+    text_y = (height - text_height) // 2 - (height * 0.05)  # Pequeno ajuste para cima
+    
+    # Desenhar o texto
+    draw.text((text_x, text_y), text, fill=text_color, font=font)
+
+    # Salvar as imagens
+    if not os.path.exists('resources/images'):
+        os.makedirs('resources/images')
+        
+    # Salvar como PNG
+    image.save('resources/images/securevault.png', 'PNG')
+    
+    # Salvar como ICO
+    image.save('resources/images/securevault.ico', 'ICO', sizes=[(256, 256), (128, 128), (64, 64), (32, 32), (16, 16)])
+
+def convert_to_icon():
+    # Abrir a imagem PNG existente
+    img = Image.open('resources/images/securevault.png')
+    
+    # Converter para RGBA se não estiver nesse formato
+    if img.mode != 'RGBA':
+        img = img.convert('RGBA')
+    
+    # Criar o arquivo ICO com múltiplos tamanhos
+    img.save('resources/images/securevault.ico', format='ICO', 
+             sizes=[(256, 256), (128, 128), (64, 64), (32, 32), (16, 16)])
+    
+    print("Ícone gerado com sucesso!")
+
 if __name__ == '__main__':
-    create_icon() 
+    create_icon()
+    create_shield_icon()
+    convert_to_icon() 
