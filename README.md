@@ -1,11 +1,17 @@
-# SecureVault <img src="resources/images/securevault.png" alt="SecureVault Logo" width="48" height="48" style="vertical-align: middle">
+# SecureVault
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![PyQt5](https://img.shields.io/badge/PyQt-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<div align="center">
+  <img src="docs/images/logo.png" alt="SecureVault Logo" width="150">
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+  [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
+  [![PyQt5](https://img.shields.io/badge/PyQt-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
+  [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-SecureVault é um gerenciador de senhas moderno e seguro desenvolvido em Python, oferecendo uma interface gráfica elegante e recursos avançados de criptografia.
+  <h3>Um gerenciador de senhas moderno e seguro desenvolvido em Python</h3>
+</div>
+
+SecureVault é um gerenciador de senhas que combina segurança robusta com uma interface elegante, oferecendo uma solução completa para o gerenciamento de suas credenciais digitais.
 
 <div align="center">
   <img src="docs/images/main_screen.png" alt="Tela Principal" width="600">
