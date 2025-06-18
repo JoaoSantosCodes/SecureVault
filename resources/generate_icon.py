@@ -12,32 +12,42 @@ def create_icon():
     circle_bounds = [20, 20, 236, 236]  # Margens de 20px
     draw.ellipse(circle_bounds, fill=circle_color)
     
-    # Desenhar um cadeado estilizado em branco
-    lock_color = (255, 255, 255, 255)  # Branco
+    # Desenhar as letras SV em branco
+    text_color = (255, 255, 255, 255)  # Branco
     
-    # Base do cadeado (retângulo arredondado simulado com várias formas)
-    base_x1, base_y1, base_x2, base_y2 = 78, 108, 178, 208
-    radius = 20
+    # Criar fonte para o texto (usando um retângulo como substituto da fonte)
+    # S
+    s_width = 60
+    s_height = 100
+    s_x = 68
+    s_y = 78
     
-    # Desenhar retângulo principal
-    draw.rectangle([base_x1 + radius, base_y1,
-                   base_x2 - radius, base_y2], fill=lock_color)
-    draw.rectangle([base_x1, base_y1 + radius,
-                   base_x2, base_y2 - radius], fill=lock_color)
+    # Parte superior do S
+    draw.rectangle([s_x, s_y, s_x + s_width, s_y + 20], fill=text_color)
+    # Parte vertical superior
+    draw.rectangle([s_x, s_y, s_x + 20, s_y + s_height//2], fill=text_color)
+    # Parte do meio
+    draw.rectangle([s_x, s_y + (s_height//2 - 10), s_x + s_width, s_y + (s_height//2 + 10)], fill=text_color)
+    # Parte vertical inferior
+    draw.rectangle([s_x + s_width - 20, s_y + s_height//2, s_x + s_width, s_y + s_height], fill=text_color)
+    # Parte inferior
+    draw.rectangle([s_x, s_y + s_height - 20, s_x + s_width, s_y + s_height], fill=text_color)
     
-    # Adicionar cantos arredondados
-    draw.ellipse([base_x1, base_y1,
-                  base_x1 + radius*2, base_y1 + radius*2], fill=lock_color)
-    draw.ellipse([base_x2 - radius*2, base_y1,
-                  base_x2, base_y1 + radius*2], fill=lock_color)
-    draw.ellipse([base_x1, base_y2 - radius*2,
-                  base_x1 + radius*2, base_y2], fill=lock_color)
-    draw.ellipse([base_x2 - radius*2, base_y2 - radius*2,
-                  base_x2, base_y2], fill=lock_color)
+    # V
+    v_width = 60
+    v_height = 100
+    v_x = 148
+    v_y = 78
     
-    # Arco do cadeado
-    arc_bounds = [68, 58, 188, 128]
-    draw.arc(arc_bounds, start=0, end=180, fill=lock_color, width=20)
+    # Desenhar o V usando linhas grossas
+    points_left = [(v_x, v_y), (v_x + v_width//2, v_y + v_height)]
+    points_right = [(v_x + v_width//2, v_y + v_height), (v_x + v_width, v_y)]
+    
+    # Desenhar linhas grossas para formar o V
+    for i in range(20):  # Espessura da linha
+        offset = i - 10
+        draw.line([(p[0] + offset, p[1]) for p in points_left], fill=text_color, width=2)
+        draw.line([(p[0] + offset, p[1]) for p in points_right], fill=text_color, width=2)
     
     # Salvar o ícone em vários tamanhos
     icon_sizes = [(16, 16), (32, 32), (48, 48), (64, 64), (128, 128), (256, 256)]

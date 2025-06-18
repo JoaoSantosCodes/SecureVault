@@ -1,13 +1,12 @@
 # SecureVault - Gerenciador de Senhas Seguro
 
 ```
-   ____                           _    _           _ _   
-  / ___|  ___  ___ _   _ _ __ ___| |  | | __ _ _   _| |_
-  \___ \ / _ \/ __| | | | '__/ _ \ |  | |/ _` | | | | __|
-   ___) |  __/ (__| |_| | | |  __/ |__| | (_| | |_| | |_ 
-  |____/ \___|\___|\__,_|_|  \___|_____/ \__,_|\__,_|\__|
-                                                          
-  🔒 Your Passwords, Your Security, Your Control 🔑
+   ______     __
+  / __/ /    / /
+ _\ \/ /    / / 
+/___/_/    /_/  
+  
+  🔒 SecureVault: Your Passwords, Your Security 🔑
 ```
 
 <div align="center">
