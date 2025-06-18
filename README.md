@@ -1,177 +1,124 @@
-# SecureVault
+# SecureVault - Gerenciador de Senhas 🔒
 
 <div align="center">
-  <img src="docs/images/logo.png" alt="SecureVault Logo" width="150">
-  
-  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-  [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-  [![PyQt5](https://img.shields.io/badge/PyQt-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
-  [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-  <h3>Um gerenciador de senhas moderno e seguro desenvolvido em Python</h3>
+![SecureVault Logo](docs/images/logo.png)
+
+[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-green.svg)](https://github.com/JoaoSantosCodes/SecureVault)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11+-yellow.svg)](https://www.python.org/)
+[![Qt](https://img.shields.io/badge/Qt-5.15+-green.svg)](https://www.qt.io/)
+
 </div>
 
-SecureVault é um gerenciador de senhas que combina segurança robusta com uma interface elegante, oferecendo uma solução completa para o gerenciamento de suas credenciais digitais.
+## 📋 Sobre
 
-<div align="center">
-  <img src="docs/images/main_screen.png" alt="Tela Principal" width="600">
-</div>
+SecureVault é um gerenciador de senhas seguro e fácil de usar, desenvolvido em Python com interface gráfica em PyQt5. Ele permite armazenar e gerenciar suas senhas de forma criptografada e segura.
 
-## 🌟 Destaques
+## ✨ Funcionalidades
 
-- 🔒 **Segurança Robusta**: Criptografia AES-256 e hash SHA-256
-- 🎨 **Interface Moderna**: Tema escuro elegante com PyQt5
-- 💾 **Armazenamento Local**: Seus dados nunca saem do seu computador
-- 🔑 **Senha Mestra**: Proteção adicional para seus dados
-- 🔄 **Backup Automático**: Nunca perca suas senhas
-- 🎯 **Fácil de Usar**: Interface intuitiva e amigável
+### 🔑 Gerenciamento de Senhas
+- Armazenamento seguro com criptografia AES
+- Interface intuitiva e moderna
+- Visualização rápida de senhas
+- Edição de entradas existentes
+- Exclusão segura de dados
 
-## 📸 Screenshots
+### 🔄 Recuperação de Senha
+- Recuperação via email com código de verificação
+- Opção de senha administrativa de backup
+- Processo seguro de redefinição
+- Senhas temporárias automáticas
 
-<div align="center">
-  <img src="docs/images/login_screen.png" alt="Tela de Login" width="300">
-  <img src="docs/images/add_password.png" alt="Adicionar Senha" width="300">
-  <br>
-  <img src="docs/images/settings_screen.png" alt="Configurações" width="300">
-  <img src="docs/images/generator_screen.png" alt="Gerador de Senhas" width="300">
-</div>
+### 📤 Importação/Exportação
+- Suporte para arquivos CSV
+- Suporte para arquivos JSON
+- Backup criptografado
+- Migração facilitada
+
+### 🛡️ Segurança
+- Criptografia AES para senhas
+- Proteção por senha mestra
+- Timeout de sessão
+- Logs de segurança
+- Configurações criptografadas
 
 ## 🚀 Instalação
 
-### Usando o Executável
+1. Baixe o instalador mais recente da [página de releases](https://github.com/JoaoSantosCodes/SecureVault/releases)
+2. Execute o instalador
+3. Inicie o SecureVault
+4. Crie sua senha mestra na primeira execução
 
-1. Baixe a [última versão](https://github.com/seu-usuario/securevault/releases/latest) do SecureVault
-2. Extraia o arquivo ZIP
-3. Execute `SecureVault.exe` na pasta extraída
+## 💻 Desenvolvimento
 
-### Instalando do Código Fonte
+### Pré-requisitos
+- Python 3.11+
+- PyQt5
+- cryptography
 
+### Configuração do Ambiente
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/securevault.git
+git clone https://github.com/JoaoSantosCodes/SecureVault.git
 
 # Entre no diretório
-cd securevault
+cd SecureVault
 
 # Instale as dependências
 pip install -r requirements.txt
 
-# Execute o programa
+# Execute o aplicativo
 python main.py
 ```
 
-## 📦 Dependências
+## 📝 Configuração
 
-| Pacote | Versão | Descrição |
-|--------|---------|------------|
-| PyQt5 | >=5.15.0 | Framework GUI |
-| cryptography | >=3.4.7 | Criptografia |
-| python-dotenv | ==1.0.0 | Variáveis de ambiente |
-| Pillow | >=9.0.0 | Processamento de imagens |
-| pytest | ==7.4.0 | Testes unitários |
-| black | ==23.3.0 | Formatação de código |
-| flake8 | ==6.0.0 | Linting |
-| mypy | ==1.3.0 | Verificação de tipos |
+### Email de Recuperação
+Para configurar o sistema de recuperação por email:
 
-## 🎨 Interface
+1. Abra o arquivo `config.enc`
+2. Configure as informações do servidor SMTP:
+   ```json
+   {
+     "email": {
+       "smtp_server": "smtp.gmail.com",
+       "smtp_port": 587,
+       "email": "seu_email@gmail.com",
+       "password": "sua_senha_de_app"
+     }
+   }
+   ```
+3. Para Gmail, use uma [senha de aplicativo](https://support.google.com/accounts/answer/185833)
 
-### Tema e Cores
-- **Principal**: Verde Esmeralda (#2ecc71)
-- **Fundo**: Cinza Escuro (#232323)
-- **Texto**: Branco Suave (#e0e0e0)
-- **Destaque**: Verde Claro (#44ff44)
-- **Bordas**: Cinza Médio (#333333)
+### Senha Administrativa
+Para configurar a senha administrativa:
 
-### Componentes
-- Fonte principal: Segoe UI (10pt)
-- Fonte de logs: Consolas
-- Ícones personalizados
-- Animações suaves
-- Design responsivo
+1. Abra o arquivo `config.enc`
+2. Defina a senha de administrador:
+   ```json
+   {
+     "admin_password": "sua_senha_admin"
+   }
+   ```
 
-<div align="center">
-  <img src="docs/images/theme_preview.png" alt="Preview do Tema" width="800">
-</div>
+## 🤝 Contribuindo
 
-## 🔒 Segurança
-
-### Criptografia
-- AES-256-GCM para dados sensíveis
-- SHA-256 para hash da senha mestra
-- Salt único por usuário
-- Chaves derivadas com PBKDF2
-
-### Proteção
-- Timeout de sessão
-- Limpeza de memória
-- Proteção contra força bruta
-- Backup criptografado
-
-## 🛠️ Desenvolvimento
-
-### Estrutura do Projeto
-```
-securevault/
-├── core/                   # Lógica principal
-│   ├── __init__.py
-│   ├── crypto.py          # Funções de criptografia
-│   ├── database.py        # Gerenciamento de dados
-│   └── password_manager.py # Gerenciador de senhas
-├── ui/                     # Interface gráfica
-│   ├── __init__.py
-│   ├── styles/            # Estilos e temas
-│   ├── dialogs/           # Janelas de diálogo
-│   └── password_widget.py # Widget principal
-├── resources/             # Recursos
-│   ├── images/           # Imagens e ícones
-│   └── generate_icon.py  # Gerador de ícones
-├── tests/                # Testes
-│   ├── __init__.py
-│   └── test_*.py        # Arquivos de teste
-├── docs/                 # Documentação
-├── main.py              # Ponto de entrada
-├── requirements.txt     # Dependências
-└── README.md           # Este arquivo
-```
-
-### Métricas de Código
-- Cobertura de testes: >90%
-- Conformidade com PEP 8
-- Tipagem estática com mypy
-- Documentação completa
-
-## 📊 Status do Projeto
-
-- ✅ **Versão**: 1.0.0
-- 🏗️ **Status**: Ativo
-- 📈 **Cobertura de Testes**: 92%
-- 🐛 **Issues Abertas**: [Ver no GitHub](https://github.com/seu-usuario/securevault/issues)
+1. Faça um Fork do projeto
+2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
+3. Faça o Commit de suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Faça o Push para a Branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
 
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🤝 Contribuindo
+## 🎯 Próximos Passos
 
-1. Faça um Fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-### Guia de Contribuição
-- Siga o estilo de código existente
-- Adicione testes para novas funcionalidades
-- Atualize a documentação
-- Verifique se todos os testes passam
-
-## ✨ Agradecimentos
-
-- [PyQt5](https://www.riverbankcomputing.com/software/pyqt/) pela excelente framework GUI
-- [cryptography](https://cryptography.io/) pela robusta biblioteca de criptografia
-- Todos os contribuidores e usuários do projeto
-
----
-<div align="center">
-  <sub>Construído com ❤️ pela comunidade</sub>
-</div>
+- [ ] Categorização de senhas
+- [ ] Gerador avançado de senhas
+- [ ] Análise de força de senhas
+- [ ] Sincronização em nuvem
+- [ ] Autenticação em dois fatores
+- [ ] Temas personalizados

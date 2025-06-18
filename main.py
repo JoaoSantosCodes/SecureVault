@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtGui import QIcon, QFont, QPalette, QColor
 from PyQt5.QtCore import Qt
 from ui.password_widget import PasswordWidget
+from core.config import Config
 
 def set_dark_theme(app):
     # Configurar o tema escuro
@@ -83,6 +84,9 @@ def set_dark_theme(app):
 def main():
     app = QApplication(sys.argv)
     
+    # Initialize configuration
+    config = Config()
+    
     # Definir o ícone do aplicativo
     icon_path = os.path.join(os.path.dirname(__file__), 'resources', 'images', 'securevault.ico')
     if not os.path.exists(icon_path):
@@ -97,7 +101,7 @@ def main():
     set_dark_theme(app)
     
     # Criar e exibir a janela principal
-    window = PasswordWidget()
+    window = PasswordWidget(config)
     window.setWindowTitle("SecureVault")
     window.setWindowIcon(QIcon(icon_path))
     window.resize(900, 600)
