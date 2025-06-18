@@ -8,9 +8,43 @@ dist/
 build/
 *.egg-info/
 
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local development settings
+*.env
+.env.local
+
+# Database files
+*.db
+*.sqlite3
+passwords.enc
+
+# Logs
+*.log
+log/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Test coverage
+.coverage
+htmlcov/
+
+# Documentation builds
+docs/_build/
+
 # PyInstaller
-*.manifest
 *.spec
+*.exe
+*.msi
 
 # Installer logs
 pip-log.txt
@@ -23,13 +57,6 @@ htmlcov/
 coverage.xml
 *.cover
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-
 # PyCharm
 .idea/
 
@@ -37,5 +64,4 @@ ENV/
 .vscode/
 
 # Application specific
-passwords.enc
 *.log 
