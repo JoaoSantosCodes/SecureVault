@@ -26,12 +26,17 @@ class Config:
         self.fernet = Fernet(key)
         
         default_config = {
-            'admin_password': 'admin123',  # Deve ser alterado na primeira execução
             'email': {
                 'smtp_server': 'smtp.gmail.com',
                 'smtp_port': 587,
                 'email': 'seu_email@gmail.com',
                 'password': 'sua_senha_de_app'
+            },
+            'app': {
+                'theme': 'dark',
+                'auto_logout': 30,  # minutos
+                'backup_enabled': True,
+                'backup_interval': 24  # horas
             }
         }
         
@@ -49,16 +54,22 @@ class Config:
         with open(self.config_file, 'wb') as f:
             f.write(encrypted_data)
     
-    def get_admin_password(self):
-        return self.config.get('admin_password')
-    
-    def set_admin_password(self, new_password):
-        self.config['admin_password'] = new_password
-        self.save_config()
-    
     def get_email_settings(self):
         return self.config.get('email', {})
     
     def set_email_settings(self, settings):
         self.config['email'] = settings
+        self.save_config()
+    
+    def get_app_settings(self):
+        return self.config.get('app', {})
+    
+    def set_app_settings(self, settings):
+        self.config['app'] = settings
+        self.save_config()
+    
+    def update_app_setting(self, key, value):
+        if 'app' not in self.config:
+            self.config['app'] = {}
+        self.config['app'][key] = value
         self.save_config() 
