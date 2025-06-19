@@ -18,7 +18,7 @@ class LoginWidget(QDialog):
         self.setFixedSize(400, 200)
         
         # Definir ícone da janela
-        icon_path = os.path.join("img", "SecureVault-Icon.png")
+        icon_path = os.path.join("resources", "images", "SecureVault-Icon.png")
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
         
@@ -101,7 +101,7 @@ class RegisterWidget(QDialog):
         self.setFixedSize(400, 250)
         
         # Definir ícone da janela
-        icon_path = os.path.join("img", "SecureVault-Icon.png")
+        icon_path = os.path.join("resources", "images", "SecureVault-Icon.png")
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
         

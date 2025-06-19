@@ -94,7 +94,7 @@ class MainWindow(QMainWindow):
         self.resize(900, 600)
         
         # Definir ícone da janela
-        icon_path = os.path.join("img", "SecureVault-Icon.png")
+        icon_path = os.path.join("resources", "images", "SecureVault-Icon.png")
         if os.path.exists(icon_path):
             self.setWindowIcon(QIcon(icon_path))
         
