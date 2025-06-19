@@ -58,4 +58,8 @@ target/
 # Application specific
 *.vault
 *.key
-secrets/ 
+secrets/
+*.enc
+data/
+users.enc
+passwords_*.enc 
