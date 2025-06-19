@@ -1,10 +1,12 @@
 import sys
 import os
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5.QtGui import QIcon, QFont, QPalette, QColor
 from PyQt5.QtCore import Qt
-from ui.password_widget import PasswordWidget
 from core.config import Config
+from core.user_manager import UserManager
+from ui.login_widget import LoginWidget, RegisterWidget
+from ui.password_widget import PasswordWidget
 
 def set_dark_theme(app):
     # Configurar o tema escuro
@@ -81,18 +83,54 @@ def set_dark_theme(app):
         }
     """)
 
+class MainWindow(QMainWindow):
+    def __init__(self, user_manager):
+        super().__init__()
+        self.user_manager = user_manager
+        self.setup_ui()
+    
+    def setup_ui(self):
+        self.setWindowTitle("SecureVault")
+        self.resize(900, 600)
+        
+        # Definir ícone da janela
+        icon_path = os.path.join("img", "SecureVault-Icon.png")
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QIcon(icon_path))
+        
+        # Mostrar tela de login
+        self.show_login()
+    
+    def show_login(self):
+        login_widget = LoginWidget(self.user_manager)
+        register_widget = None
+        
+        def handle_register_request():
+            nonlocal register_widget
+            register_widget = RegisterWidget(self.user_manager)
+            if register_widget.exec_() == RegisterWidget.Accepted:
+                login_widget.username_input.clear()
+                login_widget.password_input.clear()
+        
+        def handle_successful_login(username):
+            # Criar e mostrar o widget de senhas
+            password_widget = PasswordWidget(self.user_manager.get_user_settings(username)["password_file"])
+            self.setCentralWidget(password_widget)
+            self.show()
+        
+        # Conectar sinais
+        login_widget.registerRequested.connect(handle_register_request)
+        login_widget.loginSuccessful.connect(handle_successful_login)
+        
+        # Mostrar diálogo de login
+        if login_widget.exec_() != LoginWidget.Accepted:
+            sys.exit()
+
 def main():
     app = QApplication(sys.argv)
     
     # Initialize configuration
     config = Config()
-    
-    # Definir o ícone do aplicativo
-    icon_path = os.path.join(os.path.dirname(__file__), 'resources', 'images', 'securevault.ico')
-    if not os.path.exists(icon_path):
-        icon_path = os.path.join(os.path.dirname(__file__), 'resources', 'images', 'securevault.png')
-    
-    app.setWindowIcon(QIcon(icon_path))
     
     # Configurar fonte padrão
     app.setFont(QFont("Segoe UI", 10))
@@ -100,11 +138,8 @@ def main():
     # Aplicar tema escuro e estilos
     set_dark_theme(app)
     
-    # Criar e exibir a janela principal
-    window = PasswordWidget(config)
-    window.setWindowTitle("SecureVault")
-    window.setWindowIcon(QIcon(icon_path))
-    window.resize(900, 600)
+    # Criar e mostrar a janela principal
+    window = MainWindow(UserManager())
     window.show()
     
     sys.exit(app.exec_())

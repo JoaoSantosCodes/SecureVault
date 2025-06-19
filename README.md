@@ -17,12 +17,21 @@ SecureVault é um gerenciador de senhas seguro e fácil de usar, desenvolvido em
 
 ## ✨ Funcionalidades
 
+### 🎨 Interface Moderna
+- Design minimalista e intuitivo
+- Tema escuro por padrão
+- Botões de ação com feedback visual
+- Tooltips informativos
+- Animações suaves
+- Hierarquia visual com cores sutis
+
 ### 🔑 Gerenciamento de Senhas
 - Armazenamento seguro com criptografia AES
-- Interface intuitiva e moderna
 - Visualização rápida de senhas
 - Edição de entradas existentes
 - Exclusão segura de dados
+- Sistema de múltiplos usuários
+- Geração de senhas fortes
 
 ### 🔄 Recuperação de Senha
 - Recuperação via email com código de verificação
@@ -42,22 +51,17 @@ SecureVault é um gerenciador de senhas seguro e fácil de usar, desenvolvido em
 - Timeout de sessão
 - Logs de segurança
 - Configurações criptografadas
+- Salt e hash para senhas de usuários
 
 ## 🚀 Instalação
 
+### Via Instalador
 1. Baixe o instalador mais recente da [página de releases](https://github.com/JoaoSantosCodes/SecureVault/releases)
 2. Execute o instalador
 3. Inicie o SecureVault
 4. Crie sua senha mestra na primeira execução
 
-## 💻 Desenvolvimento
-
-### Pré-requisitos
-- Python 3.11+
-- PyQt5
-- cryptography
-
-### Configuração do Ambiente
+### Via Código Fonte
 ```bash
 # Clone o repositório
 git clone https://github.com/JoaoSantosCodes/SecureVault.git
@@ -71,6 +75,30 @@ pip install -r requirements.txt
 # Execute o aplicativo
 python main.py
 ```
+
+## 💻 Desenvolvimento
+
+### Pré-requisitos
+- Python 3.11+
+- PyQt5 5.15+
+- cryptography 41.0+
+- Outras dependências listadas em requirements.txt
+
+### Configuração do Ambiente
+1. Configure um ambiente virtual (recomendado):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate     # Windows
+   ```
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Execute os testes:
+   ```bash
+   pytest
+   ```
 
 ## 📝 Configuração
 
@@ -102,6 +130,17 @@ Para configurar a senha administrativa:
    }
    ```
 
+## 🎯 Próximos Passos
+
+- [ ] Categorização de senhas
+- [ ] Análise de força de senhas
+- [ ] Sincronização em nuvem
+- [ ] Autenticação em dois fatores
+- [ ] Temas personalizados
+- [ ] Backup automático
+- [ ] Histórico de senhas
+- [ ] Compartilhamento seguro
+
 ## 🤝 Contribuindo
 
 1. Faça um Fork do projeto
@@ -113,12 +152,3 @@ Para configurar a senha administrativa:
 ## 📄 Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-## 🎯 Próximos Passos
-
-- [ ] Categorização de senhas
-- [ ] Gerador avançado de senhas
-- [ ] Análise de força de senhas
-- [ ] Sincronização em nuvem
-- [ ] Autenticação em dois fatores
-- [ ] Temas personalizados
